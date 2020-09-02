@@ -18,6 +18,10 @@ namespace DialogueSystem
         [SerializeField] private string input;
         [SerializeField] private float delay;
         [SerializeField] private float delayBetween;
+
+        public bool Fini;
+        
+
         private void Awake()
         {
 
@@ -37,13 +41,15 @@ namespace DialogueSystem
 
             input = LignesDialogues[Random.Range(0, 4)];
 
-            if (GameObject.Find("Dialogue").GetComponent<DialogueHolder>().DeuxiemeDialogue == true)
+            if (transform.GetComponentInParent<DialogueHolder>().DeuxiemeDialogue == true)
             {
+               
                 LignesDialogues[0] = "Phillippe";
                 LignesDialogues[1] = "Je sais ou tu te caches";
                 LignesDialogues[2] = "Viens ici que je bute enculé!";
                 LignesDialogues[3] = "SALAUD";
                 LignesDialogues[4] = "test";
+                Fini = true;
             }
             input = LignesDialogues[Random.Range(0, 4)];
             StartCoroutine(WriteText(input, textHolder, delay,delayBetween));

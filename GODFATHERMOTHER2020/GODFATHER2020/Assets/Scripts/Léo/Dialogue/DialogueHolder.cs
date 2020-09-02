@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 
 namespace DialogueSystem
@@ -7,9 +8,12 @@ namespace DialogueSystem
     public class DialogueHolder : MonoBehaviour
     {
         public bool DeuxiemeDialogue;
+        public bool IsFinished;
+
         private void Awake()
         {
-            StartCoroutine(dialogueSequence());
+            
+        StartCoroutine(dialogueSequence());
         }
         private IEnumerator dialogueSequence()
         {
@@ -20,6 +24,10 @@ namespace DialogueSystem
                 yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
                 DeuxiemeDialogue = true;
             }
+            yield return new WaitForSeconds(2f);
+            IsFinished = true;
+           
+
         }
         private void Deactivate()
         {

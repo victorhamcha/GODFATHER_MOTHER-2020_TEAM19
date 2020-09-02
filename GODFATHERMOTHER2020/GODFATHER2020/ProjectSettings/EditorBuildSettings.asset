@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VictorMenu.unity
     guid: d302b73985d17a042b3aa2a7d3d439c6
+  - enabled: 1
+    path: Assets/Scenes/VictorTrans.unity
+    guid: 01085d4f327fe8f49ad4f80528f2bd76
   m_configObjects: {}
