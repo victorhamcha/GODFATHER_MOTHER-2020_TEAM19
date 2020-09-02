@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Hair
   - Roof
+  - Text
   layers:
   - Default
   - TransparentFX
