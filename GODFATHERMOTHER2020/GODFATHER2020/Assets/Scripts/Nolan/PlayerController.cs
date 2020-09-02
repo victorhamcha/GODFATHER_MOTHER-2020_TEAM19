@@ -6,12 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     public bool canJump;
     public bool ground=true;
-    private float jump = 10f;
+    private float jump = 5f;
     public float speed = 0.1f;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -31,8 +32,8 @@ public class PlayerController : MonoBehaviour
         {
             canJump = true;
             //myAnimator.SetBool("isJumping", true);
+            rb.velocity = Vector2.up * jump;
             ground = false;
-            Debug.Log("Jump");
         }
     }
 
@@ -51,8 +52,16 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             ground = true;
-            Debug.Log("ok");
             //myAnimator.SetBool("isJumping", false);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            canJump = false;
+            ground = false;
         }
     }
 }
