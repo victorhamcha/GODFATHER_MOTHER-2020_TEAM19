@@ -20,7 +20,7 @@ public class BossManager : MonoBehaviour
 
 
     [Header("Melee")]
-    public Transform target;
+    public GameObject target;
     private float cooldown=0.0f;
     private bool attacking;
     private bool canHit;
@@ -29,7 +29,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class BossManager : MonoBehaviour
         {
             if (!attacking)
             {
-                target.gameObject.GetComponent<TransController>().health -= dps;
+                target.GetComponent<TransController>().health -= dps;
                 cooldown = 5.0f;
                 attacking = true;
             }
