@@ -22,7 +22,7 @@ public class BulletBoss : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<TransController>().health -= dps;
+            collision.gameObject.GetComponent<TransController>().Damage(dps);
             Destroy(this.gameObject);
         }
     }

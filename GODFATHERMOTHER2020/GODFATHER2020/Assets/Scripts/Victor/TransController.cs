@@ -19,6 +19,7 @@ public class TransController : MonoBehaviour
     public float couldownSound = 0.1f;
     private float timerSound = 0;
     public GameObject bulletSound;
+    public Transform visor;
     [Header("Health")]
     public float health = 100f;
     private bool block=false;
@@ -63,7 +64,7 @@ public class TransController : MonoBehaviour
             Debug.Log("Jump");
         }
 
-
+      
 
         //Attack Mele
         if (Input.GetKey(KeyCode.B) && !isAttacking)
@@ -92,7 +93,7 @@ public class TransController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)&&timerSound<=0)
         {
             timerSound = couldownSound;
-            Instantiate(bulletSound, transform.position, Quaternion.identity);
+            Instantiate(bulletSound, visor.position, Quaternion.identity);
         }
         else if(timerSound>0)
         {
