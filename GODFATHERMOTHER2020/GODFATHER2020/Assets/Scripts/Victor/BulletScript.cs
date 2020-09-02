@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
     public float speed = 2;
     void Start()
     {
-
+        Destroy(this.gameObject, 1.5f);
     }
 
     // Update is called once per frame

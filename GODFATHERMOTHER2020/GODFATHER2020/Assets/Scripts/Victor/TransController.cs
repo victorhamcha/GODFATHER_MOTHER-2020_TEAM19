@@ -83,6 +83,7 @@ public class TransController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)&&timerSound<=0)
         {
             timerSound = couldownSound;
+            Instantiate(bulletSound, transform.position, Quaternion.identity);
         }
         else if(timerSound>0)
         {
