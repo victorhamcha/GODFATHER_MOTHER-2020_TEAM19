@@ -22,11 +22,12 @@ public class TextFall : MonoBehaviour
         {
             t.text = "UNE MAMAN";
             this.GetComponentInParent<BoxCollider2D>().size = new Vector2(15.0f, 2.0f);
-
         }
 
         t.alignment = TextAlignmentOptions.Center;
         t.fontSize = 25;
+
+        text.tag = "Text";
     }
 
     // Update is called once per frame
