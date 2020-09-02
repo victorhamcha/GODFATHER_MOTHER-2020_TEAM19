@@ -1324,6 +1324,7 @@ GameObject:
   - component: {fileID: 899924048}
   - component: {fileID: 899924047}
   - component: {fileID: 899924046}
+  - component: {fileID: 899924050}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1413,6 +1414,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &899924050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899924045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbada03a9ba63e40ad086c953f42456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &903903162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2176,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1760323698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 899924050}
+        m_TargetAssemblyTypeName: LancerLeJeu, Assembly-CSharp
+        m_MethodName: lancer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1261707226
 MonoBehaviour:
   m_ObjectHideFlags: 0

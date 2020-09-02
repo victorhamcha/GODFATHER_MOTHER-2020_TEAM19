@@ -44,7 +44,6 @@ namespace DialogueSystem
                 LignesDialogues[2] = "Viens ici que je bute enculé!";
                 LignesDialogues[3] = "SALAUD";
                 LignesDialogues[4] = "test";
-
             }
             input = LignesDialogues[Random.Range(0, 4)];
             StartCoroutine(WriteText(input, textHolder, delay,delayBetween));
