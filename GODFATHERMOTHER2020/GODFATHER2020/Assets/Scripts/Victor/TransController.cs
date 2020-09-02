@@ -8,6 +8,13 @@ public class TransController : MonoBehaviour
     public bool ground = true;
     public float jumpForce = 10f;
     public float speed = 0.1f;
+    private bool isMouving = false;
+    private bool megaJump = false;
+    private float megaJumpTimer = 0.8f;
+    [SerializeField] private float megaJumpCoulDown = 0.8f;
+    private Rigidbody2D rb;
+    [SerializeField]private float megaJumpForce;
+
     [Header("Mele Attack")]
     public float couldownMeleAttack = 0.3f;
     private float timeMeleAttack = 0;
@@ -23,10 +30,12 @@ public class TransController : MonoBehaviour
     [Header("Health")]
     public float health = 100f;
     private bool block=false;
+    private float timerBlock = 2f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        megaJumpTimer = megaJumpCoulDown;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
@@ -35,16 +44,23 @@ public class TransController : MonoBehaviour
         {
             transform.Translate(-speed, 0, 0);
             //mySpriteRenderer.flipX = true;
+            isMouving = true;
         }
         else if (Input.GetAxis("Horizontal") > 0.3)
         {
             transform.Translate(speed, 0, 0);
             //mySpriteRenderer.flipX = false;
+            isMouving = true;
+        }
+        else
+        {
+            isMouving = false;
         }
 
         if (!ground)
         {
             transform.Translate(Vector3.up * jumpForce * Time.deltaTime, Space.World);
+
         }
     }
 
@@ -52,35 +68,78 @@ public class TransController : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space) && ground)
+        if (Input.GetKey(KeyCode.Space) && ground)
         {
             ground = false;
             Debug.Log("Jump");
+            block=false;
         }
-
-        if (Input.GetKeyDown(KeyCode.C) && ground)
+        else if(Input.GetKey(KeyCode.Space)&&megaJumpTimer>0&&!megaJump)
         {
-            ground = false;
-            Debug.Log("Jump");
+            megaJumpTimer -= Time.deltaTime;
+        }
+        else if (Input.GetKey(KeyCode.Space) && megaJumpTimer < 0 && !megaJump)
+        {
+            megaJump = true;
+            rb.velocity = Vector2.up * megaJumpForce;
         }
 
-      
+
+
+     
+
+      if(Input.GetKeyDown(KeyCode.F)&&!isAttacking)
+        {
+            block = true;
+            if(timerBlock<=0)
+            {
+                timerBlock = 2f;
+            }
+        }
+      if(block && timerBlock>0)
+       {
+            timerBlock -= Time.deltaTime;
+       }
+     
+      else
+      {
+            block = false;
+      }
+        if (!block&&timerBlock<2)
+        {
+            timerBlock += Time.deltaTime / 2;
+        }
+        else if (!block&&timerBlock>2)
+        {
+            timerBlock = 2;
+        }
+
+      if (Input.GetKeyUp(KeyCode.F))
+      {
+            block = false;
+      }
 
         //Attack Mele
-        if (Input.GetKey(KeyCode.B) && !isAttacking)
+        if (Input.GetKeyDown(KeyCode.B) && !isAttacking&&!isMouving)
         {
             isAttacking = true;
             //pour trans
             hairCollider.SetActive(true);
+           
         }
         else if(isAttacking&&timeMeleAttack>0)
         {
             timeMeleAttack -= Time.deltaTime;
+            
         }
         else if(isAttacking && timeMeleAttack <= 0)
         {
             timeMeleAttack = couldownMeleAttack;
             isAttacking = false;
+            if (block)
+            {
+                block = false;
+            }
             //pour trans
             hairCollider.SetActive(false);
 
@@ -93,6 +152,10 @@ public class TransController : MonoBehaviour
         if (Input.GetKey(KeyCode.A)&&timerSound<=0)
         {
             timerSound = couldownSound;
+            if(block)
+            {
+                block = false;
+            }
             Instantiate(bulletSound, visor.position, Quaternion.identity);
         }
         else if(timerSound>0)
@@ -120,7 +183,9 @@ public class TransController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             ground = true;
-           
+            megaJump = false;
+
+            megaJumpTimer = megaJumpCoulDown;
             //myAnimator.SetBool("isJumping", false);
         }
         if (collision.gameObject.CompareTag("Enemy"))
