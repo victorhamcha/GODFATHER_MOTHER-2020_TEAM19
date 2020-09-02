@@ -511,7 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: EHDOF?CHGCX?NIGH?QXIGHIQ?HXGQDSHGIOX
+  Dialogue1: 
+  Dialogue2: 
+  Dialogue3: 
+  Dialogue4: 
+  Dialogue5: 
+  input: 
   delay: 0.03
   delayBetween: 0
 --- !u!114 &1180340396
@@ -606,8 +611,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: Exemple
-  delay: 0.03
+  Dialogue1: "C\u2019est contre nature"
+  Dialogue2: "C\u2019est une maladie  "
+  Dialogue3: "Vous faites du mal \xE0 nos enfants"
+  Dialogue4: Tu ne seras jamais une vraie femme
+  Dialogue5: Tu regretteras un jour
+  input: 
+  delay: 0.05
   delayBetween: 2
 --- !u!114 &1520922757
 MonoBehaviour:

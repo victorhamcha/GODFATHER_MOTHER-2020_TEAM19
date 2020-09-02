@@ -7,11 +7,11 @@ namespace DialogueSystem
     public class DialogueBase : MonoBehaviour
     {
         public bool finished { get; private set; }
-       protected IEnumerator WriteText(string input , Text tectholder, float delay, float delayBetween)
+       protected IEnumerator WriteText(string input , Text textholder, float delay, float delayBetween)
         {
             for(int i = 0; i < input.Length; i++)
             {
-                tectholder.text += input[i];
+                textholder.text += input[i];
                 yield return new WaitForSeconds(delay);
             }
             yield return new WaitForSeconds(delayBetween);
