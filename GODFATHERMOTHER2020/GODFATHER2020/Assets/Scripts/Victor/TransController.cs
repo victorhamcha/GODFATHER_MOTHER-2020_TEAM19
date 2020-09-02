@@ -57,6 +57,13 @@ public class TransController : MonoBehaviour
             Debug.Log("Jump");
         }
 
+        if (Input.GetKeyDown(KeyCode.C) && ground)
+        {
+            ground = false;
+            Debug.Log("Jump");
+        }
+
+
 
         //Attack Mele
         if (Input.GetKey(KeyCode.B) && !isAttacking)
@@ -79,6 +86,8 @@ public class TransController : MonoBehaviour
         }
       
 
+
+
         //Attack Bullet
         if (Input.GetKey(KeyCode.A)&&timerSound<=0)
         {
@@ -92,12 +101,31 @@ public class TransController : MonoBehaviour
 
     }
 
+    public void Damage(float dmg)
+    {
+        if(block)
+        {
+            health -= dmg / 2;
+            
+        }
+        else
+        {
+            health -= dmg;
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             ground = true;
            
+            //myAnimator.SetBool("isJumping", false);
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Damage(5);
+
             //myAnimator.SetBool("isJumping", false);
         }
     }
