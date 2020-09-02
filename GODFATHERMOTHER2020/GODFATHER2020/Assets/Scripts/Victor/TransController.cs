@@ -163,6 +163,16 @@ public class TransController : MonoBehaviour
             timerSound -= Time.deltaTime;
         }
 
+
+
+
+        //GAME OVER//
+        if(health<=0)
+        {
+            Time.timeScale = 0;
+
+        }
+
     }
 
     public void Damage(float dmg)
