@@ -7,6 +7,7 @@ public class BossManager : MonoBehaviour
     [Header("Stats")]
     public int hp;
     public int dps;
+    private int maxHp;
     protected enum State { Melee, Distance};
     protected State etat;
     public enum Phase { PhaseOne,PhaseTwo,PhaseThird,PhaseFour};
@@ -26,10 +27,12 @@ public class BossManager : MonoBehaviour
     private bool attacking;
     private bool canHit;
 
+    public GameObject attackLetter;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = hp;
         phase = Phase.PhaseOne;
         target = GameObject.FindGameObjectWithTag("Player");
     }
@@ -37,6 +40,21 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((hp / maxHp) * 100 <= 75 && (hp / maxHp) * 100>50 && phase !=Phase.PhaseTwo)
+        {
+            phase = Phase.PhaseTwo;
+        }
+        else if ((hp / maxHp) * 100 <= 50 && (hp / maxHp) * 100>25 && phase != Phase.PhaseThird)
+        {
+            phase = Phase.PhaseThird;
+            GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
+        }
+        else if ((hp / maxHp) * 100 <= 25 && phase != Phase.PhaseFour)
+        {
+            phase = Phase.PhaseFour;
+            GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
+        }
+
         if (hp <= 0)
         {
             Die();

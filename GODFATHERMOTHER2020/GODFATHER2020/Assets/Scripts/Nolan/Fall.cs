@@ -23,16 +23,20 @@ public class Fall : MonoBehaviour
     {
         roofPosition = GameObject.FindGameObjectWithTag("Roof").transform;
         this.transform.localPosition = GameObject.FindGameObjectWithTag("Enemy").transform.position;
-
-        text = GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text;
-        text = text.Replace(" ", "");
-        compt = text.Length;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position == roofPosition.position && !goal)
+        if (text == null)
+        {
+            text = GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text;
+            text = text.Replace(" ", "");
+            compt = text.Length;
+        }
+
+
+        if (this.transform.position == roofPosition.position && !goal)
         {
             goal = true;
         }

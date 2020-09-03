@@ -158,4 +158,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roofPosition: {fileID: 0}
-  spawnPoint: []
+  spawnPoint:
+  - {fileID: 9211466692004329766, guid: a1748789c587f704387f438584a03b75, type: 3}
+  - {fileID: 3984096756339145195, guid: 4d02b8eac3ed665449de9574b288e30a, type: 3}
+  - {fileID: 2937913707411333901, guid: 6a8943504565e344398d34b3f21f9ae8, type: 3}
+  - {fileID: 2322456561806199608, guid: 75be8a5bade5d1347b049ea5bbf48a91, type: 3}
+  - {fileID: 3396613968941064309, guid: 1e22a9fe18360144e929eaa11a63546b, type: 3}
+  - {fileID: 1236111371042282630, guid: 242646bc1e96f994b81eb5715e82d697, type: 3}
+  letter: {fileID: 7136569581172359600, guid: 435c4c9cca151a64dab639f20c4376f8, type: 3}
