@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 425849838}
   - component: {fileID: 425849837}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: DIalogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1967,7 +1967,7 @@ GameObject:
   - component: {fileID: 1058733209}
   - component: {fileID: 1058733208}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Bar de vie boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4134,7 +4134,7 @@ GameObject:
   - component: {fileID: 1692669429}
   - component: {fileID: 1692669428}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Bar de vies player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
