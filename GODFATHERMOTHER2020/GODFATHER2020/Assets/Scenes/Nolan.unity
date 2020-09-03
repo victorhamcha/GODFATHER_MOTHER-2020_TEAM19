@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1000
   dps: 10
+  phase: 1
   firePoint:
   - {fileID: 568470571}
   - {fileID: 629620932}
@@ -867,6 +868,8 @@ MonoBehaviour:
   ground: 1
   jumpForce: 10
   speed: 0.1
+  megaJumpCoulDown: 0.8
+  megaJumpForce: 0
   couldownMeleAttack: 0.3
   hairCollider: {fileID: 0}
   couldownSound: 0.1

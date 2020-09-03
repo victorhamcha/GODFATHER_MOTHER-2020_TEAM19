@@ -9,6 +9,8 @@ public class BossManager : MonoBehaviour
     public int dps;
     protected enum State { Melee, Distance};
     protected State etat;
+    public enum Phase { PhaseOne,PhaseTwo,PhaseThird};
+    public Phase phase;
 
     [Header("Distance")]
     public Transform[] firePoint;
@@ -16,8 +18,7 @@ public class BossManager : MonoBehaviour
     private int rand;
     private float cooldownBullet = 0.0f;
     private bool shoot;
-
-
+    private bool spawnPoint;
 
     [Header("Melee")]
     public GameObject target;
@@ -29,6 +30,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        phase = Phase.PhaseOne;
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -82,8 +84,16 @@ public class BossManager : MonoBehaviour
         {
             shoot = true;
             cooldownBullet = 3.0f;
-            rand=Random.Range(0, firePoint.Length);
-            GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[rand].position, firePoint[rand].rotation);
+            if (phase == Phase.PhaseOne ||phase ==Phase.PhaseTwo)
+            {
+                rand = Random.Range(0, firePoint.Length);
+                GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[rand].position, firePoint[rand].rotation);
+            }
+            else
+            {
+                if (!spawnPoint) { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[0].position, firePoint[0].rotation);spawnPoint = !spawnPoint; }
+                else { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[2].position, firePoint[2].rotation); spawnPoint = !spawnPoint; }
+            }
         }
     }
 
