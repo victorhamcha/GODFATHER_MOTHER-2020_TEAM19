@@ -10,6 +10,8 @@ TagManager:
   - Hair
   - Roof
   - Text
+  - Audio
+  - SceneInfo
   layers:
   - Default
   - TransparentFX
