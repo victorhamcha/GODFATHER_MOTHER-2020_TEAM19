@@ -31,11 +31,16 @@ public class TransController : MonoBehaviour
     public float health = 100f;
     private bool block=false;
     private float timerBlock = 2f;
+    public Transform lifeBar;
+
+
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
         megaJumpTimer = megaJumpCoulDown;
         rb = GetComponent<Rigidbody2D>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void FixedUpdate()
@@ -68,17 +73,17 @@ public class TransController : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.Space) && ground)
+        if (Input.GetKey(KeyCode.Joystick1Button0) && ground)
         {
             ground = false;
             Debug.Log("Jump");
             block=false;
         }
-        else if(Input.GetKey(KeyCode.Space)&&megaJumpTimer>0&&!megaJump)
+        else if(Input.GetKey(KeyCode.Joystick1Button0) &&megaJumpTimer>0&&!megaJump)
         {
             megaJumpTimer -= Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.Space) && megaJumpTimer < 0 && !megaJump)
+        else if (Input.GetKey(KeyCode.Joystick1Button0) && megaJumpTimer < 0 && !megaJump)
         {
             megaJump = true;
             rb.velocity = Vector2.up * megaJumpForce;
@@ -88,7 +93,7 @@ public class TransController : MonoBehaviour
 
      
 
-      if(Input.GetKeyDown(KeyCode.F)&&!isAttacking)
+      if(Input.GetKeyDown(KeyCode.Joystick1Button5) &&!isAttacking)
         {
             block = true;
             if(timerBlock<=0)
@@ -114,13 +119,13 @@ public class TransController : MonoBehaviour
             timerBlock = 2;
         }
 
-      if (Input.GetKeyUp(KeyCode.F))
+      if (Input.GetKeyUp(KeyCode.Joystick1Button5))
       {
             block = false;
       }
 
         //Attack Mele
-        if (Input.GetKeyDown(KeyCode.B) && !isAttacking&&!isMouving)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1) && !isAttacking&&!isMouving)
         {
             isAttacking = true;
             //pour trans
@@ -149,7 +154,7 @@ public class TransController : MonoBehaviour
 
 
         //Attack Bullet
-        if (Input.GetKey(KeyCode.A)&&timerSound<=0)
+        if (Input.GetKey(KeyCode.Joystick1Button2)&&timerSound<=0)
         {
             timerSound = couldownSound;
             if(block)
@@ -167,11 +172,7 @@ public class TransController : MonoBehaviour
 
 
         //GAME OVER//
-        if(health<=0)
-        {
-            Time.timeScale = 0;
-
-        }
+        
 
     }
 
@@ -185,6 +186,15 @@ public class TransController : MonoBehaviour
         else
         {
             health -= dmg;
+        }
+        if (health < 0)
+            health = 0;
+        lifeBar.localScale = new Vector2(health/100f, lifeBar.localScale.y);
+
+        if (health <= 0)
+        {
+            Time.timeScale = 0;
+            gameManager.gameOverScreen.SetActive(true);
         }
     }
 
