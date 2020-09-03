@@ -7,8 +7,10 @@ namespace DialogueSystem
     
     public class DialogueHolder : MonoBehaviour
     {
-        public bool DeuxiemeDialogue;
+       
         public bool IsFinished;
+        public float time;
+        public float DureeSkip;
 
         private void Awake()
         {
@@ -17,16 +19,16 @@ namespace DialogueSystem
         }
         private IEnumerator dialogueSequence()
         {
-            for(int i = 0; i < transform.childCount; i++)
+               
+          for(int i = 7; i < transform.childCount; i++)
             {
                 Deactivate();
                 transform.GetChild(i).gameObject.SetActive(true);
                 yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogueLine>().finished);
-                DeuxiemeDialogue = true;
+                IsFinished = true;
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(DureeSkip);
             IsFinished = true;
-           
 
         }
         private void Deactivate()

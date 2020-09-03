@@ -13,7 +13,7 @@ namespace DialogueSystem
         [SerializeField] private string Dialogue4;
         [SerializeField] private string Dialogue5;
 
-
+        
         private Text textHolder;
         [SerializeField] private string input;
         [SerializeField] private float delay;
@@ -41,17 +41,6 @@ namespace DialogueSystem
 
             input = LignesDialogues[Random.Range(0, 4)];
 
-            if (transform.GetComponentInParent<DialogueHolder>().DeuxiemeDialogue == true)
-            {
-               
-                LignesDialogues[0] = "Phillippe";
-                LignesDialogues[1] = "Je sais ou tu te caches";
-                LignesDialogues[2] = "Viens ici que je bute enculé!";
-                LignesDialogues[3] = "SALAUD";
-                LignesDialogues[4] = "test";
-                Fini = true;
-            }
-            input = LignesDialogues[Random.Range(0, 4)];
             StartCoroutine(WriteText(input, textHolder, delay,delayBetween));
         }
     }
