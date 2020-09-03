@@ -1,22 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Fall : MonoBehaviour
 {
     private int speed = 2;
-    private int dps= 30;
     public Transform roofPosition;
-
     private bool goal;
-    private bool ground;
-    private float cooldown = 2.0f;
+
+    [Header("Spawn Letter")]
+    private int compt;
+    public Transform[] spawnPoint;
+    public GameObject letter;
+    private int randLetter;
+    private int randSpawn;
+    private float cooldown=0.0f;
+    private string text;
 
     // Start is called before the first frame update
     void Start()
     {
         roofPosition = GameObject.FindGameObjectWithTag("Roof").transform;
         this.transform.localPosition = GameObject.FindGameObjectWithTag("Enemy").transform.position;
+
+        text = GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text;
+        text = text.Replace(" ", "");
+        compt = text.Length;
     }
 
     // Update is called once per frame
@@ -25,41 +35,38 @@ public class Fall : MonoBehaviour
         if(this.transform.position == roofPosition.position && !goal)
         {
             goal = true;
-            this.GetComponent<BoxCollider2D>().enabled = true;
         }
         else if(this.transform.position != roofPosition.position && !goal)
         {
             this.transform.localPosition = Vector2.MoveTowards(transform.position, roofPosition.position, 1.5f*speed*Time.deltaTime);
         }
 
-        if (goal && !ground)
+        cooldown -= Time.deltaTime;
+        if (goal && cooldown <= 0)
         {
-            this.transform.localPosition = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y - speed * Time.deltaTime);
-        }
-        if (ground)
-        {
-            cooldown -= Time.deltaTime;
-            if (cooldown <= 0)
+            randSpawn = Random.Range(0, 6);
+            randLetter = Random.Range(0, text.Length);
+
+            GameObject letterGameObject = (GameObject)Instantiate(letter, spawnPoint[randSpawn].position, spawnPoint[randSpawn].rotation);
+            letterGameObject.GetComponentInChildren<TextFall>().texte = text[randLetter].ToString();
+            for(int i=0;i< GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text.Length; i++)
             {
-                Destroy(GameObject.FindGameObjectWithTag("Text"));
-                Destroy(this.gameObject);
+                if (GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text[i] == text[randLetter])
+                {
+                    GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text=GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text.Remove(i, 1);
+                    i = GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text.Length;
+                    text = GameObject.FindGameObjectWithTag("Text").gameObject.GetComponent<TextMeshPro>().text;
+                    text = text.Replace(" ", "");
+                }
             }
+            compt--;
+            cooldown = 1.0f;
         }
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject);
-
-        if (collision.gameObject.CompareTag("Player"))
+        if (compt==0)
         {
-            collision.gameObject.GetComponent<TransController>().Damage(dps);
-        }
-        else if (collision.gameObject.CompareTag("Ground"))
-        {
-            Debug.Log("Touch");
-            ground = true;
+            Destroy(GameObject.FindGameObjectWithTag("Text"));
+            Destroy(this.gameObject);
         }
     }
 }

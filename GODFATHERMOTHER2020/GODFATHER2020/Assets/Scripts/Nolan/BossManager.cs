@@ -9,7 +9,7 @@ public class BossManager : MonoBehaviour
     public int dps;
     protected enum State { Melee, Distance};
     protected State etat;
-    public enum Phase { PhaseOne,PhaseTwo,PhaseThird};
+    public enum Phase { PhaseOne,PhaseTwo,PhaseThird,PhaseFour};
     public Phase phase;
 
     [Header("Distance")]
@@ -89,10 +89,16 @@ public class BossManager : MonoBehaviour
                 rand = Random.Range(0, firePoint.Length);
                 GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[rand].position, firePoint[rand].rotation);
             }
-            else
+            else if(phase == Phase.PhaseThird)
             {
                 if (!spawnPoint) { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[0].position, firePoint[0].rotation);spawnPoint = !spawnPoint; }
                 else { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[2].position, firePoint[2].rotation); spawnPoint = !spawnPoint; }
+                cooldownBullet = 1.5f;
+            }
+            else
+            {
+                GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[1].position, firePoint[1].rotation);
+                GameObject bulletGameObject2 = (GameObject)Instantiate(bullet, firePoint[3].position, firePoint[3].rotation); 
             }
         }
     }
