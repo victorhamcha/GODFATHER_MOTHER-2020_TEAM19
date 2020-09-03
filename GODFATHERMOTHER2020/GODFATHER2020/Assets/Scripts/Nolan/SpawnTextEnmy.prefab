@@ -159,10 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roofPosition: {fileID: 0}
   spawnPoint:
-  - {fileID: 9211466692004329766, guid: a1748789c587f704387f438584a03b75, type: 3}
-  - {fileID: 3984096756339145195, guid: 4d02b8eac3ed665449de9574b288e30a, type: 3}
-  - {fileID: 2937913707411333901, guid: 6a8943504565e344398d34b3f21f9ae8, type: 3}
-  - {fileID: 2322456561806199608, guid: 75be8a5bade5d1347b049ea5bbf48a91, type: 3}
-  - {fileID: 3396613968941064309, guid: 1e22a9fe18360144e929eaa11a63546b, type: 3}
-  - {fileID: 1236111371042282630, guid: 242646bc1e96f994b81eb5715e82d697, type: 3}
+  - {fileID: 4028666593667233886, guid: 8ae15b3207b6f0648822bb3955802bab, type: 3}
+  - {fileID: 2612129520337228486, guid: fbba531287d43b24683c7f8a22debbe9, type: 3}
+  - {fileID: 2855022368525624873, guid: 816daf6a054637843bd2cc871ebd51b5, type: 3}
+  - {fileID: 8748887760240450837, guid: b2d31e46990a91a40b6d2ecb77e63fd1, type: 3}
+  - {fileID: 6683304878349949416, guid: 4412d8bb58fecbb44a6e89a1b2c29df6, type: 3}
+  - {fileID: 2651433755768602640, guid: d43ae9886427bc748b6f706c898d2b90, type: 3}
   letter: {fileID: 7136569581172359600, guid: 435c4c9cca151a64dab639f20c4376f8, type: 3}

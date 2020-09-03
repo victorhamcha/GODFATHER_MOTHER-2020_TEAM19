@@ -6,7 +6,7 @@ public class BulletScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 2;
-    public int power = 4;
+    public int power = 40;
     void Start()
     {
         Destroy(this.gameObject, 4f);

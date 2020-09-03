@@ -39,6 +39,7 @@ public class Fall : MonoBehaviour
         if (this.transform.position == roofPosition.position && !goal)
         {
             goal = true;
+            Debug.Log("Ok");
         }
         else if(this.transform.position != roofPosition.position && !goal)
         {
@@ -63,6 +64,7 @@ public class Fall : MonoBehaviour
                     text = text.Replace(" ", "");
                 }
             }
+            Debug.Log("Lettre");
             compt--;
             cooldown = 1.0f;
         }

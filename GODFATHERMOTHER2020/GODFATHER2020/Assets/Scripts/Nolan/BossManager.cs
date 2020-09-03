@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class BossManager : MonoBehaviour
     private bool canHit;
 
     public GameObject attackLetter;
+    public Slider health;
 
     // Start is called before the first frame update
     void Start()
@@ -35,21 +37,24 @@ public class BossManager : MonoBehaviour
         maxHp = hp;
         phase = Phase.PhaseOne;
         target = GameObject.FindGameObjectWithTag("Player");
+        health.maxValue = maxHp;
+        health.value = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((hp / maxHp) * 100 <= 75 && (hp / maxHp) * 100>50 && phase !=Phase.PhaseTwo)
+        health.value = maxHp-hp;
+        if (((float)hp / maxHp) * 100 <= 75 && ((float)hp / maxHp) * 100>50 && phase !=Phase.PhaseTwo)
         {
             phase = Phase.PhaseTwo;
         }
-        else if ((hp / maxHp) * 100 <= 50 && (hp / maxHp) * 100>25 && phase != Phase.PhaseThird)
+        else if (((float)hp / maxHp) * 100 <= 50 && ((float)hp / maxHp) * 100>25 && phase != Phase.PhaseThird)
         {
             phase = Phase.PhaseThird;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
         }
-        else if ((hp / maxHp) * 100 <= 25 && phase != Phase.PhaseFour)
+        else if (((float)hp / maxHp) * 100 <= 25 && phase != Phase.PhaseFour)
         {
             phase = Phase.PhaseFour;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TransController : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class TransController : MonoBehaviour
     public float health = 100f;
     private bool block=false;
     private float timerBlock = 2f;
-    public Transform lifeBar;
+    public Slider lifeBar;
 
 
     private GameManager gameManager;
@@ -41,6 +42,8 @@ public class TransController : MonoBehaviour
         megaJumpTimer = megaJumpCoulDown;
         rb = GetComponent<Rigidbody2D>();
         gameManager = FindObjectOfType<GameManager>();
+        lifeBar.maxValue = health;
+        lifeBar.value = health;
     }
 
     private void FixedUpdate()
@@ -72,7 +75,7 @@ public class TransController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifeBar.value = health;
         if (Input.GetKey(KeyCode.Joystick1Button0) && ground)
         {
             ground = false;
@@ -189,7 +192,6 @@ public class TransController : MonoBehaviour
         }
         if (health < 0)
             health = 0;
-        lifeBar.localScale = new Vector2(health/100f, lifeBar.localScale.y);
 
         if (health <= 0)
         {
