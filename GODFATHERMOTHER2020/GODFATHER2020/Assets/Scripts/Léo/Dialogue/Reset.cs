@@ -31,21 +31,21 @@ namespace DialogueSystem
                 transform.GetChild(i).gameObject.SetActive(true);
                 i++;
             }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 1)
+            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 1)
             {
                 transform.GetChild(i-1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
                 transform.GetChild(i).gameObject.SetActive(true);
                 i++;
             }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 2)
+            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 2)
             {
                 transform.GetChild(i-1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
                 transform.GetChild(i).gameObject.SetActive(true);
                 i++;
             }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 3)
+            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 3)
             {
                 transform.GetChild(i-1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
@@ -53,7 +53,7 @@ namespace DialogueSystem
                 i++;
               
             }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 4)
+            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 4)
             {
                 transform.GetChild(i - 1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
@@ -61,7 +61,7 @@ namespace DialogueSystem
                 i++;
                 
             }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 5)
+            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 5)
             {
                 transform.GetChild(i - 1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
@@ -69,7 +69,7 @@ namespace DialogueSystem
                 i++;
                 
             }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetKey(KeyCode.Space) && i == 6)
+            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 6)
             {
                 transform.GetChild(i - 1).gameObject.SetActive(false);
                 transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
