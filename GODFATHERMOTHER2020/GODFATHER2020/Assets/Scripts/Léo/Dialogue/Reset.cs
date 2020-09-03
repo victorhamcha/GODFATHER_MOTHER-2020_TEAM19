@@ -13,9 +13,12 @@ namespace DialogueSystem
         private bool IntroFinie;
         public GameObject Fond;
         private bool IntroFin;
-        
-        public void start()
+        public GameObject Boss;
+      
+
+        public void Start()
         {
+            Boss.GetComponent<BossManager>().enabled = false;
             TimeBetween = transform.GetChild(i).GetComponent<DialogueHolder>().time;
             TimeLeft = TimeBetween;
             IntroFinie = false;
@@ -73,12 +76,13 @@ namespace DialogueSystem
                 transform.GetChild(i).gameObject.SetActive(true);
                 IntroFinie = true;
                 i++;
+
             }
            
             if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && IntroFinie == true && i < transform.childCount)
                         {
-                           
-                            transform.GetChild(i - 1).gameObject.SetActive(false);
+                Boss.GetComponent<BossManager>().enabled = true;
+                transform.GetChild(i - 1).gameObject.SetActive(false);
                             TimeLeft -= Time.deltaTime;
                             Fond.SetActive(false);
                             if (TimeLeft <= 0f)

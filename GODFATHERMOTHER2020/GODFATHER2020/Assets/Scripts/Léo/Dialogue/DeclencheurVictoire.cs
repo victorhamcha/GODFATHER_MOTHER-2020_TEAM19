@@ -6,9 +6,10 @@ using UnityEngine;
 public class DeclencheurVictoire : MonoBehaviour
 {
     public GameObject ScriptVictoire;
+    public GameObject Boss;
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Boss.GetComponent<BossManager>().hp <= 0)
         {
             ScriptVictoire.SetActive(true);
         }

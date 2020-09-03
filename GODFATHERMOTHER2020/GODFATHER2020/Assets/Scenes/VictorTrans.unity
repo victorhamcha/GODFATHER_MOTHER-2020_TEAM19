@@ -393,6 +393,7 @@ MonoBehaviour:
   TimeBetween: 5
   TimeLeft: 0
   Fond: {fileID: 1968160630}
+  Boss: {fileID: 1016122848}
 --- !u!1 &138095220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1056,7 @@ GameObject:
   - component: {fileID: 425849838}
   - component: {fileID: 425849837}
   m_Layer: 5
-  m_Name: DIalogue
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5082,6 +5083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScriptVictoire: {fileID: 1183005561}
+  Boss: {fileID: 1016122848}
 --- !u!1 &2011206597
 GameObject:
   m_ObjectHideFlags: 0
