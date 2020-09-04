@@ -12,6 +12,7 @@ public class DeclencheurVictoire : MonoBehaviour
         if (Boss.GetComponent<BossManager>().hp <= 0)
         {
             ScriptVictoire.SetActive(true);
+            Boss.GetComponent<BossManager>().enabled = false;
         }
     }
 }

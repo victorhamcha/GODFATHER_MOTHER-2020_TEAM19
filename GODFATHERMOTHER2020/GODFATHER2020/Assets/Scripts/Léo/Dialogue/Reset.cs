@@ -15,23 +15,26 @@ namespace DialogueSystem
         public GameObject Fond2;
         private bool IntroFin;
         public GameObject Boss;
+        public GameObject Player;
       
 
         public void Start()
         {
             Boss.GetComponent<BossManager>().enabled = false;
+            Player.GetComponent<TransController>().enabled = false;
             TimeBetween = transform.GetChild(i).GetComponent<DialogueHolder>().time;
             TimeLeft = TimeBetween;
             IntroFinie = false;
-         
-        }
-        public void Update()
-        {
-            if(Input.GetButton("Dialogues") && i == 0)
+            if (i == 0)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
                 i++;
             }
+
+        }
+        public void Update()
+        {
+            
             if (i > 0)
             {
                 if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 1)
@@ -85,6 +88,7 @@ namespace DialogueSystem
                 if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && IntroFinie == true && i < transform.childCount)
                 {
                     Boss.GetComponent<BossManager>().enabled = true;
+                    Player.GetComponent<TransController>().enabled = true;
                     transform.GetChild(i - 1).gameObject.SetActive(false);
                     Fond.SetActive(false);
                     Fond2.SetActive(false);
@@ -105,6 +109,5 @@ namespace DialogueSystem
             }
            
         }
- 
     }
 }
