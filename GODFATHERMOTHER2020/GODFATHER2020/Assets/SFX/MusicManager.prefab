@@ -145,6 +145,6 @@ MonoBehaviour:
     intro: {fileID: 8300000, guid: 7e081f7deeb93bf47a8a1c07f7c959c6, type: 3}
     loop: {fileID: 8300000, guid: 7e081f7deeb93bf47a8a1c07f7c959c6, type: 3}
   - musicType: 1
-    intro: {fileID: 8300000, guid: e61df3c13a8d26e4f8332fddc7b1589b, type: 3}
-    loop: {fileID: 8300000, guid: e61df3c13a8d26e4f8332fddc7b1589b, type: 3}
+    intro: {fileID: 8300000, guid: 8e97a03f52366fc48b1137b7e35bf704, type: 3}
+    loop: {fileID: 8300000, guid: 8e97a03f52366fc48b1137b7e35bf704, type: 3}
   audioSource: {fileID: 1460380569299379484}
