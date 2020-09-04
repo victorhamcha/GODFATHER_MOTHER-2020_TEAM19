@@ -34,11 +34,14 @@ public class TransController : MonoBehaviour
     private float timerBlock = 2f;
     public Slider lifeBar;
 
+    public SpriteRenderer mySpriteRenderer;
+    public Animator anim;
 
     private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         megaJumpTimer = megaJumpCoulDown;
         rb = GetComponent<Rigidbody2D>();
         gameManager = FindObjectOfType<GameManager>();
@@ -53,16 +56,21 @@ public class TransController : MonoBehaviour
             transform.Translate(-speed, 0, 0);
             //mySpriteRenderer.flipX = true;
             isMouving = true;
+            anim.SetBool("Running",true);
         }
         else if (Input.GetAxis("Horizontal") > 0.3)
         {
             transform.Translate(speed, 0, 0);
             //mySpriteRenderer.flipX = false;
             isMouving = true;
+            anim.SetBool("Running", true);
+
+
         }
         else
         {
             isMouving = false;
+            anim.SetBool("Running",false);
         }
 
         if (!ground)
@@ -80,7 +88,8 @@ public class TransController : MonoBehaviour
         {
             ground = false;
             Debug.Log("Jump");
-            block=false;
+            anim.SetTrigger("Jump");
+            block = false;
         }
         else if(Input.GetKey(KeyCode.Joystick1Button0) &&megaJumpTimer>0&&!megaJump)
         {
@@ -89,22 +98,23 @@ public class TransController : MonoBehaviour
         else if (Input.GetKey(KeyCode.Joystick1Button0) && megaJumpTimer < 0 && !megaJump)
         {
             megaJump = true;
+            anim.SetTrigger("Jump");
             rb.velocity = Vector2.up * megaJumpForce;
         }
 
 
-
-     
-
-      if(Input.GetKeyDown(KeyCode.Joystick1Button5) &&!isAttacking)
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5) &&!isAttacking)
         {
             block = true;
-            if(timerBlock<=0)
+
+            if (timerBlock<=0)
             {
                 timerBlock = 2f;
             }
         }
-      if(block && timerBlock>0)
+        anim.SetBool("Block1", block);
+
+        if (block && timerBlock>0)
        {
             timerBlock -= Time.deltaTime;
        }
@@ -132,8 +142,8 @@ public class TransController : MonoBehaviour
         {
             isAttacking = true;
             //pour trans
+            anim.SetBool("Attacking",true);
             hairCollider.SetActive(true);
-           
         }
         else if(isAttacking&&timeMeleAttack>0)
         {
@@ -142,6 +152,8 @@ public class TransController : MonoBehaviour
         }
         else if(isAttacking && timeMeleAttack <= 0)
         {
+            anim.SetBool("Attacking", false);
+
             timeMeleAttack = couldownMeleAttack;
             isAttacking = false;
             if (block)
@@ -152,13 +164,11 @@ public class TransController : MonoBehaviour
             hairCollider.SetActive(false);
 
         }
-      
-
-
 
         //Attack Bullet
         if (Input.GetKey(KeyCode.Joystick1Button2)&&timerSound<=0)
         {
+            anim.SetTrigger("Ability1");
             timerSound = couldownSound;
             if(block)
             {
@@ -170,12 +180,7 @@ public class TransController : MonoBehaviour
         {
             timerSound -= Time.deltaTime;
         }
-
-
-
-
         //GAME OVER//
-        
 
     }
 
