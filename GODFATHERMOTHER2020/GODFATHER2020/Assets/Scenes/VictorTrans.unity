@@ -5329,13 +5329,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: 1
-  jumpForce: 6
+  jumpForce: 6.3
   speed: 0.1
   megaJumpCoulDown: 0.8
-  megaJumpForce: 2
-  couldownMeleAttack: 3
+  megaJumpForce: 2.5
+  couldownMeleAttack: 2
   hairCollider: {fileID: 2138500536}
-  couldownSound: 0.5
+  couldownSound: 1
   bulletSound: {fileID: 6340886956291623968, guid: 990d6ac21dda8a94abfca1d439a32d92,
     type: 3}
   visor: {fileID: 1861628793}
@@ -5356,7 +5356,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.35
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
