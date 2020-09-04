@@ -5331,7 +5331,7 @@ MonoBehaviour:
   ground: 1
   jumpForce: 6.3
   speed: 0.1
-  megaJumpCoulDown: 0.8
+  megaJumpCoulDown: 0.5
   megaJumpForce: 2.5
   couldownMeleAttack: 2
   hairCollider: {fileID: 2138500536}
