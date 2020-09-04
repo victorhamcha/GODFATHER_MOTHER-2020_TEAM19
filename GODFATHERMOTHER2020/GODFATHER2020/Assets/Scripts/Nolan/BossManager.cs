@@ -9,9 +9,9 @@ public class BossManager : MonoBehaviour
     public int hp;
     public int dps;
     private int maxHp;
-    protected enum State { Melee, Distance};
+    protected enum State { Melee, Distance };
     protected State etat;
-    public enum Phase { PhaseOne,PhaseTwo,PhaseThird,PhaseFour};
+    public enum Phase { PhaseOne, PhaseTwo, PhaseThird, PhaseFour };
     public Phase phase;
 
     [Header("Distance")]
@@ -24,16 +24,21 @@ public class BossManager : MonoBehaviour
 
     [Header("Melee")]
     public GameObject target;
-    private float cooldown=0.0f;
+    private float cooldown = 0.0f;
     private bool attacking;
     private bool canHit;
 
     public GameObject attackLetter;
     public Slider health;
 
+    private float cooldown_scream = 0.0f;
+
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         maxHp = hp;
         phase = Phase.PhaseOne;
         target = GameObject.FindGameObjectWithTag("Player");
@@ -44,20 +49,25 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        health.value = maxHp-hp;
-        if (((float)hp / maxHp) * 100 <= 75 && ((float)hp / maxHp) * 100>50 && phase !=Phase.PhaseTwo)
+        health.value = maxHp - hp;
+        if (((float)hp / maxHp) * 100 <= 75 && ((float)hp / maxHp) * 100 > 50 && phase != Phase.PhaseTwo)
         {
             phase = Phase.PhaseTwo;
         }
-        else if (((float)hp / maxHp) * 100 <= 50 && ((float)hp / maxHp) * 100>25 && phase != Phase.PhaseThird)
+        else if (((float)hp / maxHp) * 100 <= 50 && ((float)hp / maxHp) * 100 > 25 && phase != Phase.PhaseThird)
         {
             phase = Phase.PhaseThird;
+            anim.SetBool("Scream", true);
+            cooldown_scream = 3.0f;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
         }
         else if (((float)hp / maxHp) * 100 <= 25 && phase != Phase.PhaseFour)
         {
             phase = Phase.PhaseFour;
+            anim.SetBool("Scream", true);
+            cooldown_scream = 3.0f;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
+
         }
 
         if (hp <= 0)
@@ -90,6 +100,11 @@ public class BossManager : MonoBehaviour
                 shoot = false;
             }
         }
+
+        if (cooldown_scream > 0)
+        {
+            cooldown_scream -= Time.deltaTime;
+        }
     }
 
     public void Attack()
@@ -100,29 +115,39 @@ public class BossManager : MonoBehaviour
             {
                 target.GetComponent<TransController>().health -= dps;
                 cooldown = 5.0f;
+                anim.SetBool("Shoot", false);
+                anim.SetBool("Fight", true);
                 attacking = true;
             }
         }
-        else if(!shoot)
+        else if (!shoot)
         {
+            anim.SetBool("Fight", false);
             shoot = true;
             cooldownBullet = 3.0f;
-            if (phase == Phase.PhaseOne ||phase ==Phase.PhaseTwo)
+            if (phase == Phase.PhaseOne || phase == Phase.PhaseTwo)
             {
                 rand = Random.Range(0, firePoint.Length);
                 GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[rand].position, firePoint[rand].rotation);
             }
-            else if(phase == Phase.PhaseThird)
+            else if (phase == Phase.PhaseThird)
             {
-                if (!spawnPoint) { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[0].position, firePoint[0].rotation);spawnPoint = !spawnPoint; }
+                if (!spawnPoint) { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[0].position, firePoint[0].rotation); spawnPoint = !spawnPoint; }
                 else { GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[2].position, firePoint[2].rotation); spawnPoint = !spawnPoint; }
                 cooldownBullet = 1.5f;
             }
             else
             {
                 GameObject bulletGameObject = (GameObject)Instantiate(bullet, firePoint[1].position, firePoint[1].rotation);
-                GameObject bulletGameObject2 = (GameObject)Instantiate(bullet, firePoint[3].position, firePoint[3].rotation); 
+                GameObject bulletGameObject2 = (GameObject)Instantiate(bullet, firePoint[3].position, firePoint[3].rotation);
             }
+            if (cooldown_scream <= 0)
+            {
+                anim.SetBool("Scream", false);
+                anim.SetBool("Shoot", true);
+                Debug.Log("Ok mec");
+            }
+
         }
     }
 
@@ -136,7 +161,7 @@ public class BossManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             canHit = true;
-        } 
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

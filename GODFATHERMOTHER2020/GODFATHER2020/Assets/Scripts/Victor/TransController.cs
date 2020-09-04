@@ -202,6 +202,7 @@ public class TransController : MonoBehaviour
         {
             Time.timeScale = 0;
             gameManager.gameOverScreen.SetActive(true);
+            anim.SetBool("Ko", true);
         }
     }
 
