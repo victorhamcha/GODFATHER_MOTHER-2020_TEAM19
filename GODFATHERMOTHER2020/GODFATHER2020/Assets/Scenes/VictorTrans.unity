@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef3171126057944fbd2e8783b87d08c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 700
   dps: 10
   phase: 0
   firePoint:
