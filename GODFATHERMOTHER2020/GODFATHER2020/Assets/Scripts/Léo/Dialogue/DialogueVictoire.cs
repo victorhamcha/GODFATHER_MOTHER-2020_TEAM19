@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace DialogueSystem
 {
@@ -16,6 +17,7 @@ namespace DialogueSystem
             textHolder = GetComponent<Text>();
             Fond.SetActive(true);
             StartCoroutine(WriteVictory(input,textHolder, 0.01f));
+             
         }
         IEnumerator WriteVictory(string input, Text textholder, float delay)
         {
@@ -26,7 +28,14 @@ namespace DialogueSystem
             }
 
         }
-        
+        IEnumerator Menu()
+        {
+           
+            yield return new WaitForSeconds(4f);
+            SceneManager.LoadScene("VictorMenu");
+
+        }
+
 
     }
     
