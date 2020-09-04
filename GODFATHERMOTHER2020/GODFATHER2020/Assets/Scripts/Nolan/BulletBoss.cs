@@ -42,6 +42,11 @@ public class BulletBoss : MonoBehaviour
         {
             transform.position += -transform.right * speed * Time.fixedDeltaTime + transform.up*Mathf.Sin(Time.time*frequency)*magnitude;
         }
+
+        if(this.transform.position.x<= -8.4)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
