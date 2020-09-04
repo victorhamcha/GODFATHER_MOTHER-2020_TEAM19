@@ -188,8 +188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -54.7, y: -76.3}
+  m_SizeDelta: {x: 1686.6011, y: 256.61267}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30136755
 MonoBehaviour:
@@ -203,11 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "C\u2019est contre nature"
-  Dialogue2: "C\u2019est une maladie  "
-  Dialogue3: "Vous faites du mal \xE0 nos enfants"
-  Dialogue4: Tu ne seras jamais une vraie femme
-  Dialogue5: Tu regretteras un jour
+  Dialogue1: You're not natural
+  Dialogue2: You're sick in the head
+  Dialogue3: You're hurting our children
+  Dialogue4: You will never be a true woman
+  Dialogue5: You will regret it someday
   input: 
   delay: 0.01
   delayBetween: 1
@@ -234,7 +234,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc9222aea9103c942a1e62f421ba2b63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00fe25893f1b18f4b921ef43262a43a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -326,8 +326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 37.919098, y: -10.729553}
-  m_SizeDelta: {x: 1447.8772, y: 293.97327}
+  m_AnchoredPosition: {x: 16.8, y: -38}
+  m_SizeDelta: {x: 730.5421, y: 138.87378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &50518356
 GameObject:
@@ -393,6 +393,7 @@ MonoBehaviour:
   TimeBetween: 5
   TimeLeft: 0
   Fond: {fileID: 1968160630}
+  Fond2: {fileID: 36907108}
   Boss: {fileID: 1016122848}
 --- !u!1 &138095220
 GameObject:
@@ -781,16 +782,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "Welcome my dear piece of shit, I had you come here because I prepared
-    a little interview\u2026 "
-  Dialogue2: "Welcome my dear piece of shit, I had you come here because I prepared
-    a little interview\u2026 "
-  Dialogue3: "Welcome my dear piece of shit, I had you come here because I prepared
-    a little interview\u2026 "
-  Dialogue4: "Welcome my dear piece of shit, I had you come here because I prepared
-    a little interview\u2026 "
-  Dialogue5: "Welcome my dear piece of shit, I had you come here because I prepared
-    a little interview\u2026 "
+  Dialogue1: "Karen : Welcome my dear piece of shit, I had you come here because
+    I prepared a little interview\u2026 "
+  Dialogue2: "Karen : Welcome my dear piece of shit, I had you come here because
+    I prepared a little interview\u2026 "
+  Dialogue3: "Karen : Welcome my dear piece of shit, I had you come here because
+    I prepared a little interview\u2026 "
+  Dialogue4: "Karen : Welcome my dear piece of shit, I had you come here because
+    I prepared a little interview\u2026 "
+  Dialogue5: "Karen : Welcome my dear piece of shit, I had you come here because
+    I prepared a little interview\u2026 "
   input: 
   delay: 0.01
   delayBetween: 0
@@ -902,8 +903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -58.6, y: -79.5}
+  m_SizeDelta: {x: 1706.4888, y: 290.6391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &331497514
 MonoBehaviour:
@@ -917,11 +918,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "C\u2019est contre nature"
-  Dialogue2: "C\u2019est une maladie  "
-  Dialogue3: "Vous faites du mal \xE0 nos enfants"
-  Dialogue4: Tu ne seras jamais une vraie femme
-  Dialogue5: Tu regretteras un jour
+  Dialogue1: You're not natural
+  Dialogue2: You're sick in the head
+  Dialogue3: You're hurting our children
+  Dialogue4: You will never be a true woman
+  Dialogue5: You will regret it someday
   input: 
   delay: 0.01
   delayBetween: 1
@@ -948,7 +949,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1538,21 +1539,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "It\u2019s about your mental illness. You see, I was hoping our viewers
-    could better understand why you are\u2026 What you are, I mean, a social trash
-    !"
-  Dialogue2: "It\u2019s about your mental illness. You see, I was hoping our viewers
-    could better understand why you are\u2026 What you are, I mean, a social trash
-    !"
-  Dialogue3: "It\u2019s about your mental illness. You see, I was hoping our viewers
-    could better understand why you are\u2026 What you are, I mean, a social trash
-    !"
-  Dialogue4: "It\u2019s about your mental illness. You see, I was hoping our viewers
-    could better understand why you are\u2026 What you are, I mean, a social trash
-    !"
-  Dialogue5: "It\u2019s about your mental illness. You see, I was hoping our viewers
-    could better understand why you are\u2026 What you are, I mean, a social trash
-    !"
+  Dialogue1: "Karen : It\u2019s about your mental illness. You see, I was hoping
+    our viewers could better understand why you are\u2026 What you are, I mean, a
+    social trash !"
+  Dialogue2: "Karen : It\u2019s about your mental illness. You see, I was hoping
+    our viewers could better understand why you are\u2026 What you are, I mean, a
+    social trash !"
+  Dialogue3: "Karen : It\u2019s about your mental illness. You see, I was hoping
+    our viewers could better understand why you are\u2026 What you are, I mean, a
+    social trash !"
+  Dialogue4: "Karen : It\u2019s about your mental illness. You see, I was hoping
+    our viewers could better understand why you are\u2026 What you are, I mean, a
+    social trash !"
+  Dialogue5: "Karen : It\u2019s about your mental illness. You see, I was hoping
+    our viewers could better understand why you are\u2026 What you are, I mean, a
+    social trash !"
   input: 
   delay: 0.01
   delayBetween: 0
@@ -1738,11 +1739,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: ' I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR !'
-  Dialogue2: ' I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR !'
-  Dialogue3: ' I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR !'
-  Dialogue4: ' I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR !'
-  Dialogue5: ' I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR !'
+  Dialogue1: 'Karen : I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR
+    !'
+  Dialogue2: 'Karen : I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR
+    !'
+  Dialogue3: 'Karen : I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR
+    !'
+  Dialogue4: 'Karen : I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR
+    !'
+  Dialogue5: 'Karen : I AM THE GREAT KAREN LA PEINE AND I THINK YOUR END IS NEAR
+    !'
   input: 
   delay: 0.01
   delayBetween: 0
@@ -2208,8 +2214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -64.4, y: -79.4}
+  m_SizeDelta: {x: 1716.4331, y: 281.95615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153377468
 MonoBehaviour:
@@ -2254,7 +2260,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -3209,11 +3215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: Where am I ? What is this bullshit ?
-  Dialogue2: Where am I ? What is this bullshit ?
-  Dialogue3: Where am I ? What is this bullshit ?
-  Dialogue4: Where am I ? What is this bullshit ?
-  Dialogue5: Where am I ? What is this bullshit ?
+  Dialogue1: 'Pamela : Where am I ? What is this bullshit ?'
+  Dialogue2: 'Pamela : Where am I ? What is this bullshit ?'
+  Dialogue3: 'Pamela : Where am I ? What is this bullshit ?'
+  Dialogue4: 'Pamela : Where am I ? What is this bullshit ?'
+  Dialogue5: 'Pamela : Where am I ? What is this bullshit ?'
   input: 
   delay: 0.01
   delayBetween: 0
@@ -3295,8 +3301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -64.4, y: -78.6}
+  m_SizeDelta: {x: 1696.5449, y: 286.29752}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430100481
 MonoBehaviour:
@@ -3310,11 +3316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "C\u2019est contre nature"
-  Dialogue2: "C\u2019est une maladie  "
-  Dialogue3: "Vous faites du mal \xE0 nos enfants"
-  Dialogue4: Tu ne seras jamais une vraie femme
-  Dialogue5: Tu regretteras un jour
+  Dialogue1: You're not natural
+  Dialogue2: You're sick in the head
+  Dialogue3: You're hurting our children
+  Dialogue4: You will never be a true woman
+  Dialogue5: You will regret it someday
   input: 
   delay: 0.01
   delayBetween: 1
@@ -3341,7 +3347,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -4345,11 +4351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: I see, and for what matter ?
-  Dialogue2: I see, and for what matter ?
-  Dialogue3: I see, and for what matter ?
-  Dialogue4: I see, and for what matter ?
-  Dialogue5: I see, and for what matter ?
+  Dialogue1: 'Pamela : I see, and for what matter ?'
+  Dialogue2: 'Pamela : I see, and for what matter ?'
+  Dialogue3: 'Pamela : I see, and for what matter ?'
+  Dialogue4: 'Pamela : I see, and for what matter ?'
+  Dialogue5: 'Pamela : I see, and for what matter ?'
   input: 
   delay: 0.01
   delayBetween: 0
@@ -4941,7 +4947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc9222aea9103c942a1e62f421ba2b63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e55e9297e19e7b4e87518ebf5c0c819, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5013,8 +5019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -64.4, y: -78.7}
+  m_SizeDelta: {x: 1676.6567, y: 268.93256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998324442
 MonoBehaviour:
@@ -5028,11 +5034,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "C\u2019est contre nature"
-  Dialogue2: "C\u2019est une maladie  "
-  Dialogue3: "Vous faites du mal \xE0 nos enfants"
-  Dialogue4: Tu ne seras jamais une vraie femme
-  Dialogue5: Tu regretteras un jour
+  Dialogue1: You're not natural
+  Dialogue2: You're sick in the head
+  Dialogue3: You're hurting our children
+  Dialogue4: You will never be a true woman
+  Dialogue5: You will regret it someday
   input: 
   delay: 0.01
   delayBetween: 1
@@ -5059,7 +5065,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -5163,8 +5169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: 6}
-  m_SizeDelta: {x: 3635.6138, y: 598.871}
+  m_AnchoredPosition: {x: -58.5, y: -77.6}
+  m_SizeDelta: {x: 1717.189, y: 265.21143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011206599
 MonoBehaviour:
@@ -5178,11 +5184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "C\u2019est contre nature"
-  Dialogue2: "C\u2019est une maladie  "
-  Dialogue3: "Vous faites du mal \xE0 nos enfants"
-  Dialogue4: Tu ne seras jamais une vraie femme
-  Dialogue5: Tu regretteras un jour
+  Dialogue1: You're not natural
+  Dialogue2: You're sick in the head
+  Dialogue3: You're hurting our children
+  Dialogue4: You will never eb a true woman
+  Dialogue5: You will regret it someday
   input: 
   delay: 0.01
   delayBetween: 1
@@ -5209,7 +5215,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 150
+    m_FontSize: 115
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -5504,11 +5510,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: "Very charming\u2026 And who am I speaking to ?"
-  Dialogue2: "Very charming\u2026 And who am I speaking to ?"
-  Dialogue3: "Very charming\u2026 And who am I speaking to ?"
-  Dialogue4: "Very charming\u2026 And who am I speaking to ?"
-  Dialogue5: "Very charming\u2026 And who am I speaking to ?"
+  Dialogue1: "Pamela : Very charming\u2026 And who am I speaking to ?"
+  Dialogue2: "Pamela : Very charming\u2026 And who am I speaking to ?"
+  Dialogue3: "Pamela : Very charming\u2026 And who am I speaking to ?"
+  Dialogue4: "Pamela : Very charming\u2026 And who am I speaking to ?"
+  Dialogue5: "Pamela : Very charming\u2026 And who am I speaking to ?"
   input: 
   delay: 0.01
   delayBetween: 0
@@ -5605,16 +5611,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bdc05e9254079b418829fb62866efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dialogue1: " I\u2019m speechless and all but\u2026 I think you didn\u2019t quite
-    get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
-  Dialogue2: " I\u2019m speechless and all but\u2026 I think you didn\u2019t quite
-    get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
-  Dialogue3: " I\u2019m speechless and all but\u2026 I think you didn\u2019t quite
-    get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
-  Dialogue4: " I\u2019m speechless and all but\u2026 I think you didn\u2019t quite
-    get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
-  Dialogue5: " I\u2019m speechless and all but\u2026 I think you didn\u2019t quite
-    get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
+  Dialogue1: "Pamela :  I\u2019m speechless and all but\u2026 I think you didn\u2019t
+    quite get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
+  Dialogue2: "Pamela :  I\u2019m speechless and all but\u2026 I think you didn\u2019t
+    quite get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
+  Dialogue3: "Pamela :  I\u2019m speechless and all but\u2026 I think you didn\u2019t
+    quite get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
+  Dialogue4: "Pamela :  I\u2019m speechless and all but\u2026 I think you didn\u2019t
+    quite get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
+  Dialogue5: "Pamela :  I\u2019m speechless and all but\u2026 I think you didn\u2019t
+    quite get who you are dealing with. I, Pamela Pride, am gonna teach you RESPECT."
   input: 
   delay: 0.025
   delayBetween: 10

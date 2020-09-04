@@ -12,6 +12,7 @@ namespace DialogueSystem
         public float TimeLeft;
         private bool IntroFinie;
         public GameObject Fond;
+        public GameObject Fond2;
         private bool IntroFin;
         public GameObject Boss;
       
@@ -26,75 +27,82 @@ namespace DialogueSystem
         }
         public void Update()
         {
-            if(Input.GetKey(KeyCode.Space) && i == 0)
+            if(Input.GetButton("Dialogues") && i == 0)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
                 i++;
             }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 1)
+            if (i > 0)
             {
-                transform.GetChild(i-1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                i++;
-            }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 2)
-            {
-                transform.GetChild(i-1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                i++;
-            }
-            if (transform.GetChild(i-1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 3)
-            {
-                transform.GetChild(i-1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                i++;
-              
-            }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 4)
-            {
-                transform.GetChild(i - 1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                i++;
-                
-            }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 5)
-            {
-                transform.GetChild(i - 1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                i++;
-                
-            }
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButtonDown("joystic button 0") && i == 6)
-            {
-                transform.GetChild(i - 1).gameObject.SetActive(false);
-                transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
-                transform.GetChild(i).gameObject.SetActive(true);
-                IntroFinie = true;
-                i++;
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 1)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    i++;
+                }
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 2)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    i++;
+                }
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 3)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    i++;
 
+                }
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 4)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    i++;
+
+                }
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 5)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    i++;
+
+                }
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && Input.GetButton("Dialogues") && i == 6)
+                {
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    transform.GetChild(i).GetComponent<DialogueHolder>().IsFinished = false;
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    IntroFinie = true;
+                    i++;
+
+                }
+
+                if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && IntroFinie == true && i < transform.childCount)
+                {
+                    Boss.GetComponent<BossManager>().enabled = true;
+                    transform.GetChild(i - 1).gameObject.SetActive(false);
+                    Fond.SetActive(false);
+                    Fond2.SetActive(false);
+                    TimeLeft -= Time.deltaTime;
+                    
+                    if (TimeLeft <= 0f)
+                    {
+                        
+                        transform.GetChild(i).gameObject.SetActive(true);
+                        TimeBetween = transform.GetChild(i + 1).GetComponent<DialogueHolder>().time;
+                        Fond2.SetActive(true);
+                        TimeLeft = TimeBetween;
+                        
+
+                        i++;
+                    }
+                }
             }
-           
-            if (transform.GetChild(i - 1).GetComponent<DialogueHolder>().IsFinished == true && IntroFinie == true && i < transform.childCount)
-                        {
-                Boss.GetComponent<BossManager>().enabled = true;
-                transform.GetChild(i - 1).gameObject.SetActive(false);
-                            TimeLeft -= Time.deltaTime;
-                            Fond.SetActive(false);
-                            if (TimeLeft <= 0f)
-                            {
-                                
-                                transform.GetChild(i).gameObject.SetActive(true);
-                                TimeBetween = transform.GetChild(i + 1).GetComponent<DialogueHolder>().time;
-                                TimeLeft = TimeBetween;
-                                Fond.SetActive(true);
-                                i++;
-                            }
-                        }
            
         }
  
