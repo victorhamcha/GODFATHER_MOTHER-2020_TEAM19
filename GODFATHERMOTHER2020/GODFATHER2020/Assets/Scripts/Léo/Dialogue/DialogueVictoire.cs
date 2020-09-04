@@ -26,7 +26,7 @@ namespace DialogueSystem
                 textholder.text += input[i];
                 yield return new WaitForSeconds(delay);
             }
-
+            Menu();
         }
         IEnumerator Menu()
         {
