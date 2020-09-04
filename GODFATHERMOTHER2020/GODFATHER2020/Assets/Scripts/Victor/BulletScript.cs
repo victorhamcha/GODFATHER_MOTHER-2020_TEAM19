@@ -23,7 +23,7 @@ public class BulletScript : MonoBehaviour
         if(collision.gameObject.tag=="Enemy")
         {
             Destroy(this.gameObject);
-            collision.GetComponent<BossManager>().hp -= power;
+            collision.gameObject.GetComponent<BossManager>().hp -= power;
         }
     }
 

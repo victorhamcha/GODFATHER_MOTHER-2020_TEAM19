@@ -53,7 +53,12 @@ public class TransController : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") < -0.3)
         {
+
             transform.Translate(-speed, 0, 0);
+            if (this.transform.position.x <= -8.4)
+            {
+                this.transform.position = new Vector3(-8.4f, this.transform.position.y, 0);
+            }
             //mySpriteRenderer.flipX = true;
             isMouving = true;
             anim.SetBool("Running",true);

@@ -42,10 +42,6 @@ public class BulletBoss : MonoBehaviour
         {
             transform.position += -transform.right * speed * Time.fixedDeltaTime + transform.up*Mathf.Sin(Time.time*frequency)*magnitude;
         }
-        else
-        {
-
-        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

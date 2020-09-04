@@ -34,10 +34,12 @@ public class BossManager : MonoBehaviour
     private float cooldown_scream = 0.0f;
 
     private Animator anim;
+    private GameObject toDestroy;
 
     // Start is called before the first frame update
     void Start()
     {
+        toDestroy = new GameObject();
         anim = GetComponent<Animator>();
         maxHp = hp;
         phase = Phase.PhaseOne;
@@ -60,6 +62,8 @@ public class BossManager : MonoBehaviour
             anim.SetBool("Scream", true);
             cooldown_scream = 3.0f;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
+            letterAttack.transform.SetParent(toDestroy.GetComponent<Transform>());
+
         }
         else if (((float)hp / maxHp) * 100 <= 25 && phase != Phase.PhaseFour)
         {
@@ -67,11 +71,13 @@ public class BossManager : MonoBehaviour
             anim.SetBool("Scream", true);
             cooldown_scream = 3.0f;
             GameObject letterAttack = (GameObject)Instantiate(attackLetter, this.transform.position, this.transform.rotation);
+            letterAttack.transform.SetParent(toDestroy.GetComponent<Transform>());
 
         }
 
         if (hp <= 0)
         {
+            target.GetComponent<TransController>().health = 9999999999999;
             Die();
         }
         if (canHit)
@@ -145,7 +151,6 @@ public class BossManager : MonoBehaviour
             {
                 anim.SetBool("Scream", false);
                 anim.SetBool("Shoot", true);
-                Debug.Log("Ok mec");
             }
 
         }
@@ -153,7 +158,8 @@ public class BossManager : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        Destroy(toDestroy);
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
