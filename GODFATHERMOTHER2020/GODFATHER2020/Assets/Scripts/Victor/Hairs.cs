@@ -6,7 +6,7 @@ public class Hairs : MonoBehaviour
 {
     public BossManager boss;
     public int dmg;
-    bool canTouch;
+    bool canTouch=true;
     float timerOftouching;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Hairs : MonoBehaviour
         {
             timerOftouching += Time.deltaTime;
         }
-        else if(canTouch&&timerOftouching>0.3f)
+        else if(!canTouch&&timerOftouching>0.3f)
         {
             timerOftouching = 0;
             canTouch = true;
@@ -34,6 +34,7 @@ public class Hairs : MonoBehaviour
        if(collision.gameObject.tag=="Enemy"&&canTouch)
        {
             boss.hp -= dmg;
+            Debug.Log(boss.hp);
             canTouch = false;
        }
     }
